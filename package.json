@@ -2,17 +2,25 @@
   "name": "@pjx/eslint-config",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --clean --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch"
+    "build": "tsup --format esm,cjs --clean --dts",
+    "dev": "tsup  --format esm,cjs --watch",
+    "lint": "tsup --format esm && eslint ."
   },
-  "keywords": ["eslint-config"],
+  "keywords": [
+    "eslint-config"
+  ],
   "author": "@En11x",
   "license": "ISC",
   "devDependencies": {
+    "@types/node": "^20.9.0",
+    "eslint": "^8.53.0",
     "tsup": "^7.2.0",
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "eslint-config-flat-gitignore": "^0.1.1"
   }
 }

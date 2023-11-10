@@ -1,3 +1,3 @@
-const a:Number = 2
+import {Zeus} from './factory'
 
-export default a
+export default Zeus
