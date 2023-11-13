@@ -2,10 +2,11 @@ import fs from "fs";
 import { ConfigItem, OptionsConfig } from "./types";
 import gitignore from 'eslint-config-flat-gitignore'
 import { combine } from "./utils";
-import { ignores, perfectionist } from "./config";
+import { ignores, perfectionist, typescript } from "./config";
+import { isPackageExists } from "local-pkg";
 
 export function Zeus(options:OptionsConfig = {},...useCongigs:(ConfigItem|ConfigItem[])[]){
-  const {gitignore:enableGitignore = true} =options
+  const {componentExts=[],gitignore:enableGitignore = true,overrides={},typescript:enableTypescript = isPackageExists('typescript')} =options
 
   const configs:ConfigItem[][] = []
 
@@ -25,6 +26,14 @@ export function Zeus(options:OptionsConfig = {},...useCongigs:(ConfigItem|Config
 
     perfectionist()
   )
+
+  if(enableTypescript){
+    configs.push(typescript({
+      ...typeof enableTypescript !=='boolean'?enableTypescript:{},
+      componentExts,
+      overrides:overrides.typescript
+    }))
+  }
 
   return combine(...configs,...useCongigs)
 }

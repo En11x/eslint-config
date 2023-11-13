@@ -3,13 +3,17 @@ import Zeus from './dist/index.js'
 
 const config =  Zeus(
   {
-    gitignore:true
+    gitignore:true,
+    typescript:true,
+    overrides:{
+      typescript:{}
+    }
   },
   {
     files:['src/**/*.ts'],
     rules:{
       'perfectionist/sort-objects': 'error',  //对象key排序
-    }
+    },
   }
 )
 
