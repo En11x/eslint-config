@@ -1,8 +1,10 @@
 import fs from "fs";
 import { ConfigItem, OptionsConfig } from "./types";
 import gitignore from 'eslint-config-flat-gitignore'
+import { combine } from "./utils";
+import { ignores, perfectionist } from "./config";
 
-export function Zeus(options:OptionsConfig = {}){
+export function Zeus(options:OptionsConfig = {},...useCongigs:(ConfigItem|ConfigItem[])[]){
   const {gitignore:enableGitignore = true} =options
 
   const configs:ConfigItem[][] = []
@@ -17,5 +19,12 @@ export function Zeus(options:OptionsConfig = {}){
     }
   }
 
-  return configs.flat()
+  //base configs
+  configs.push(
+    ignores(),
+
+    perfectionist()
+  )
+
+  return combine(...configs,...useCongigs)
 }

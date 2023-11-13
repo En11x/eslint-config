@@ -7,7 +7,8 @@
   "scripts": {
     "build": "tsup --format esm,cjs --clean --dts",
     "dev": "tsup  --format esm,cjs --watch",
-    "lint": "tsup --format esm && eslint ."
+    "lint": "tsup --format esm && eslint .",
+    "lint:fix": "tsup --format esm && eslint --fix ."
   },
   "keywords": [
     "eslint-config"
@@ -15,6 +16,7 @@
   "author": "@En11x",
   "license": "ISC",
   "devDependencies": {
+    "@types/eslint": "^8.44.7",
     "@types/node": "^20.9.0",
     "eslint": "^8.53.0",
     "eslint-define-config": "^1.24.1",
@@ -22,6 +24,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "eslint-config-flat-gitignore": "^0.1.1"
+    "eslint-config-flat-gitignore": "^0.1.1",
+    "eslint-plugin-perfectionist": "^2.3.0"
   }
 }
