@@ -5,7 +5,9 @@ import { combine } from "./utils";
 import { ignores, perfectionist, typescript } from "./config";
 import { isPackageExists } from "local-pkg";
 
-export function Zeus(options:OptionsConfig = {},...useCongigs:(ConfigItem|ConfigItem[])[]){
+const flatConfigProps:(keyof ConfigItem)[] = ['files']
+
+export function Zeus(options:OptionsConfig & ConfigItem = {},...useCongigs:(ConfigItem|ConfigItem[])[]){
   const {componentExts=[],gitignore:enableGitignore = true,overrides={},typescript:enableTypescript = isPackageExists('typescript')} =options
 
   const configs:ConfigItem[][] = []
@@ -33,6 +35,17 @@ export function Zeus(options:OptionsConfig = {},...useCongigs:(ConfigItem|Config
       componentExts,
       overrides:overrides.typescript
     }))
+  }
+
+  const usedConfig = flatConfigProps.reduce((acc,key)=>{
+    if(key in options){
+      acc[key] = options[key] as any
+    }
+    return acc
+  },{} as ConfigItem)
+
+  if(Object.keys(usedConfig).length){
+    configs.push([usedConfig])
   }
 
   return combine(...configs,...useCongigs)
