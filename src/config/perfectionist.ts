@@ -5,7 +5,7 @@ export function perfectionist():ConfigItem[]{
   return [{
     name: 'Zeus:perfectionist',
     plugins:{
-      perfectionist:pluginPerfectionist
+                    perfectionist:pluginPerfectionist
     }
   }]
 }
