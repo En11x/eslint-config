@@ -1,59 +1,69 @@
+import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
+import type { FlatESLintConfigItem, ParserOptions } from 'eslint-define-config'
+import { Overrides } from 'eslint-define-config'
 
-import { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
-import { FlatESLintConfigItem, ParserOptions ,Overrides} from 'eslint-define-config'
-
-export type ConfigItem = Omit<FlatESLintConfigItem,'plugins'>& {
-
+export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins'> & {
 
   /**
    * eslint plugins
    */
-  plugins?:Record<string,any>,
+  plugins?: Record<string, any>
 
-   /**
+  /**
    * name of config
    */
-   name?:string
+  name?: string
 }
 
-export interface OptionsComponentExts{
+export interface OptionsComponentExts {
   /**
    * extensions for components
    */
   componentExts?: string[]
 }
 
-export interface OptionsTypeScriptParserOptions{
+export interface OptionsTypeScriptParserOptions {
   /**
    * parserOptions for typescript
    */
-  parserOptions?:Partial<ParserOptions>
+  parserOptions?: Partial<ParserOptions>
 }
 
-export interface OptionsTypeScriptWithTypes{
-  tsconfigPath?:string|string[]
+export interface OptionsTypeScriptWithTypes {
+  tsconfigPath?: string | string[]
 }
 
-export interface OptionsTypescriptRulesOverrides{
-  overrides?:ConfigItem['rules']
+export interface OptionsTypescriptRulesOverrides {
+  overrides?: ConfigItem['rules']
 }
 
-export interface OptionsConfig extends OptionsComponentExts{
+export interface StylisticConfig {
+  indent?: number | 'tab'
+  quotes?: 'single' | 'double'
+  jsx?: boolean
+}
+
+export interface OptionsConfig extends OptionsComponentExts {
 
   /**
    * gitignore support
    */
-  gitignore?: boolean|FlatGitignoreOptions
+  gitignore?: boolean | FlatGitignoreOptions
 
   /**
    * typescript support
    */
-  typescript?: boolean|OptionsTypeScriptParserOptions|OptionsTypeScriptWithTypes
+  typescript?: boolean | OptionsTypeScriptParserOptions | OptionsTypeScriptWithTypes
 
   /**
    * overrides rules
    */
-  overrides?:{
-    typescript?:ConfigItem['rules']
+  overrides?: {
+    typescript?: ConfigItem['rules']
   }
+
+  /**
+   * enable stylitic rules
+   */
+  stylistic?: boolean | StylisticConfig
 }

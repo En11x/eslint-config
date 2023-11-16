@@ -1,4 +1,4 @@
-import {Zeus} from './factory'
+import { Zeus } from './factory'
 
 export * from './plugins'
 

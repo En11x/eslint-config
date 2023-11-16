@@ -3,6 +3,7 @@
 
 export { default as pluginPerfectionist } from 'eslint-plugin-perfectionist'
 export { default as pluginTs } from '@typescript-eslint/eslint-plugin'
+export { default as pluginStylistic } from '@stylistic/eslint-plugin'
 export * as pluginImport from 'eslint-plugin-i'
 
 export * as parserTs from '@typescript-eslint/parser'

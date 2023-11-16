@@ -1,11 +1,11 @@
-import { pluginPerfectionist } from "../plugins";
-import { ConfigItem } from "src/types";
+import { pluginPerfectionist } from '../plugins'
+import type { ConfigItem } from 'src/types'
 
-export function perfectionist():ConfigItem[]{
+export function perfectionist(): ConfigItem[] {
   return [{
     name: 'Zeus:perfectionist',
-    plugins:{
-                    perfectionist:pluginPerfectionist
-    }
+    plugins: {
+      perfectionist: pluginPerfectionist,
+    },
   }]
 }

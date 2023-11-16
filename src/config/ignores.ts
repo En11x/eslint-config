@@ -1,10 +1,10 @@
-import { GLOB_EXCLUDE } from "src/globs";
-import { ConfigItem } from "src/types";
+import { GLOB_EXCLUDE } from 'src/globs'
+import type { ConfigItem } from 'src/types'
 
-export function ignores():ConfigItem[]{
+export function ignores(): ConfigItem[] {
   return [
     {
-      ignores:GLOB_EXCLUDE
-    }
+      ignores: GLOB_EXCLUDE,
+    },
   ]
 }
