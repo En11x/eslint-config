@@ -27,7 +27,7 @@ export function Zeus(options: OptionsConfig & ConfigItem = {}, ...useCongigs: (C
 
   // base configs
   configs.push(
-    ignores(),
+    ignores(options.ignores),
 
     perfectionist(),
   )

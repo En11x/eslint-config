@@ -1,6 +1,6 @@
 import type { FlatGitignoreOptions } from 'eslint-config-flat-gitignore'
 import type { FlatESLintConfigItem, ParserOptions } from 'eslint-define-config'
-import { Overrides } from 'eslint-define-config'
+import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
 
 export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins'> & {
 
@@ -37,11 +37,7 @@ export interface OptionsTypescriptRulesOverrides {
   overrides?: ConfigItem['rules']
 }
 
-export interface StylisticConfig {
-  indent?: number | 'tab'
-  quotes?: 'single' | 'double'
-  jsx?: boolean
-}
+export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'jsx' | 'quotes' | 'semi'> {}
 
 export interface OptionsConfig extends OptionsComponentExts {
 
