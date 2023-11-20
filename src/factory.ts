@@ -19,9 +19,8 @@ export function Zeus(options: OptionsConfig & ConfigItem = {}, ...useCongigs: (C
       configs.push([gitignore(enableGitignore)])
     }
     else {
-      if (fs.existsSync('.gitignore')) {
+      if (fs.existsSync('.gitignore'))
         configs.push([gitignore()])
-      }
     }
   }
 
@@ -40,20 +39,18 @@ export function Zeus(options: OptionsConfig & ConfigItem = {}, ...useCongigs: (C
     }))
   }
 
-  if (styliticOptions) {
+  if (styliticOptions)
     configs.push(stylistic(styliticOptions))
-  }
 
   const usedConfig = flatConfigProps.reduce((acc, key) => {
-    if (key in options) {
+    if (key in options)
       acc[key] = options[key] as any
-    }
+
     return acc
   }, {} as ConfigItem)
 
-  if (Object.keys(usedConfig).length) {
+  if (Object.keys(usedConfig).length)
     configs.push([usedConfig])
-  }
 
   return combine(...configs, ...useCongigs)
 }
