@@ -71,4 +71,10 @@ export interface OptionsConfig extends OptionsComponentExts {
    * enable stylitic rules
    */
   stylistic?: boolean | StylisticConfig
+
+  /**
+   * jsonc suport
+   * @default true
+   */
+  jsonc?: boolean
 }
