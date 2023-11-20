@@ -1,12 +1,12 @@
 // @ts-check
 import Zeus from './dist/index.js'
 
-const config = Zeus(
+export default Zeus(
   {
     typescript: true,
     ignores: [
-      // 'fixtures',
-      // '_fixtures',
+      'fixtures',
+      '_fixtures',
     ],
   },
   {
@@ -16,7 +16,3 @@ const config = Zeus(
     },
   },
 )
-
-console.log(config, 'eslint')
-
-export default config
