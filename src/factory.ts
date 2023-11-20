@@ -1,9 +1,9 @@
 import fs from 'fs'
-import type { ConfigItem, OptionsConfig } from './types'
 import gitignore from 'eslint-config-flat-gitignore'
-import { combine } from './utils'
-import { ignores, perfectionist, stylistic, typescript } from './config'
 import { isPackageExists } from 'local-pkg'
+import type { ConfigItem, OptionsConfig } from './types'
+import { combine } from './utils'
+import { ignores, imports, perfectionist, stylistic, typescript } from './config'
 
 const flatConfigProps: (keyof ConfigItem)[] = ['files']
 
@@ -27,6 +27,10 @@ export function Zeus(options: OptionsConfig & ConfigItem = {}, ...useCongigs: (C
   // base configs
   configs.push(
     ignores(options.ignores),
+
+    imports({
+      stylistic: styliticOptions,
+    }),
 
     perfectionist(),
   )

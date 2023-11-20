@@ -15,6 +15,11 @@ export type ConfigItem = Omit<FlatESLintConfigItem, 'plugins'> & {
   name?: string
 }
 
+export type FlatConfigItem = Omit<FlatESLintConfigItem, 'plugins'> & {
+  name?: string
+  plugins?: Record<string, any>
+}
+
 export interface OptionsComponentExts {
   /**
    * extensions for components
@@ -35,6 +40,10 @@ export interface OptionsTypeScriptWithTypes {
 
 export interface OptionsTypescriptRulesOverrides {
   overrides?: ConfigItem['rules']
+}
+
+export interface OptionsStylistic {
+  stylistic?: boolean | StylisticConfig
 }
 
 export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'jsx' | 'quotes' | 'semi'> {}

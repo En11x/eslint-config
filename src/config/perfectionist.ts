@@ -1,5 +1,5 @@
-import { pluginPerfectionist } from '../plugins'
 import type { ConfigItem } from 'src/types'
+import { pluginPerfectionist } from '../plugins'
 
 export function perfectionist(): ConfigItem[] {
   return [{
