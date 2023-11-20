@@ -1,6 +1,6 @@
 {
   "name": "@zeus-lint/eslint-config",
-  "version": "1.0.1-beta.3",
+  "version": "1.0.1-beta.4",
   "packageManager": "pnpm@8.10.5",
   "description": "En11x's eslint config",
   "main": "./dist/index.js",
