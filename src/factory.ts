@@ -3,7 +3,7 @@ import gitignore from 'eslint-config-flat-gitignore'
 import { isPackageExists } from 'local-pkg'
 import type { ConfigItem, OptionsConfig } from './types'
 import { combine } from './utils'
-import { ignores, imports, perfectionist, sortPackageJson, sortTsConfigJson, stylistic, typescript } from './config'
+import { ignores, imports, perfectionist, react, sortPackageJson, sortTsConfigJson, stylistic, typescript } from './config'
 
 const flatConfigProps: (keyof ConfigItem)[] = ['files']
 
@@ -49,6 +49,14 @@ export function Zeus(options: OptionsConfig & ConfigItem = {}, ...useCongigs: (C
   if (options.jsonc ?? true) {
     sortPackageJson()
     sortTsConfigJson()
+  }
+
+  if (options.react ?? true) {
+    configs.push(react({
+      overrides: overrides.react,
+      stylistic: styliticOptions,
+      typescript: !!enableTypescript,
+    }))
   }
 
   const usedConfig = flatConfigProps.reduce((acc, key) => {

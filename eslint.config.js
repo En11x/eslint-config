@@ -1,7 +1,7 @@
 // @ts-check
 import Zeus from './dist/index.js'
 
-export default Zeus(
+const config = Zeus(
   {
     typescript: true,
     ignores: [
@@ -16,3 +16,7 @@ export default Zeus(
     },
   },
 )
+
+console.log(config)
+
+export default config

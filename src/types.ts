@@ -38,12 +38,16 @@ export interface OptionsTypeScriptWithTypes {
   tsconfigPath?: string | string[]
 }
 
-export interface OptionsTypescriptRulesOverrides {
+export interface OptionsOverrides {
   overrides?: ConfigItem['rules']
 }
 
 export interface OptionsStylistic {
   stylistic?: boolean | StylisticConfig
+}
+
+export interface OptionsHasTypeScript {
+  typescript?: boolean
 }
 
 export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'jsx' | 'quotes' | 'semi'> {}
@@ -65,6 +69,7 @@ export interface OptionsConfig extends OptionsComponentExts {
    */
   overrides?: {
     typescript?: ConfigItem['rules']
+    react?: FlatConfigItem['rules']
   }
 
   /**
@@ -77,4 +82,9 @@ export interface OptionsConfig extends OptionsComponentExts {
    * @default true
    */
   jsonc?: boolean
+
+  /**
+   * enable react
+   */
+  react?: boolean
 }

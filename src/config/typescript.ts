@@ -1,9 +1,9 @@
 import { parserTs, pluginImport, pluginTs } from '../plugins'
 import { GLOB_SRC } from '../globs'
-import type { ConfigItem, OptionsComponentExts, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, OptionsTypescriptRulesOverrides } from '../types'
+import type { ConfigItem, OptionsComponentExts, OptionsTypeScriptParserOptions, OptionsTypeScriptWithTypes, OptionsOverrides } from '../types'
 import { toArray, renameRules } from '../utils'
 
-export function typescript(options?: OptionsComponentExts & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsTypescriptRulesOverrides): ConfigItem[] {
+export function typescript(options?: OptionsComponentExts & OptionsTypeScriptParserOptions & OptionsTypeScriptWithTypes & OptionsOverrides): ConfigItem[] {
   const { componentExts = [], overrides = {}, parserOptions = [] } = options ?? {}
 
   const typeAwareRules: ConfigItem['rules'] = {
